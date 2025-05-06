@@ -28,6 +28,11 @@ const runBot = async () => {
 
     while (true) {
         try {
+            let curHour = new Date().getHours();
+            if (curHour > 22 || curHour < 5) {
+                await sleep(60 * 60) // Sleep for 1 hour
+                continue
+            }
             const deleted = await deletePreviousMessages();
             if (!deleted) {
                 sentMessages = []
