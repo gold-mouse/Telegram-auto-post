@@ -37,7 +37,12 @@ const runBot = async () => {
                 if (banedGroup.includes(IDs[i])) continue
 
                 let before_banned = banedGroup.length
-                client.sendMessage(IDs[i], { message: "YOUR MESSAGE HERE." })
+                client.sendMessage(IDs[i], { message: `
+**Chrome Automation & Data Extracting!**
+**Master of selenium, selenium-wire and undetected_chrome! **
+
+I am ready to share my previous work with you!
+                    ` })
                     .then(result => sentMessages.push({ chatId: IDs[i], messageId: result.id }))
                     .catch(_ => banedGroup.push(IDs[i]))
                     .finally(() => console.log(`${before_banned == banedGroup.length ? 'Sent' : 'Failed to send'} message to ${IDs[i]}`));
