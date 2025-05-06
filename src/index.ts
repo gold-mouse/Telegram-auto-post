@@ -33,7 +33,7 @@ const runBot = async () => {
                 await sleep(60 * 60) // Sleep for 1 hour
                 continue
             }
-            sleep(60 * 3) // Sleep for 3 hours
+            await sleep(60 * 3) // Sleep for 3 hours
             const deleted = await deletePreviousMessages();
             if (!deleted) {
                 sentMessages = []
