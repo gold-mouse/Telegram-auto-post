@@ -28,12 +28,6 @@ const runBot = async () => {
 
     while (true) {
         try {
-            let curHour = new Date().getHours();
-            if (curHour > 22 || curHour < 5) {
-                await sleep(60 * 60) // Sleep for 1 hour
-                continue
-            }
-            await sleep(60 * 3) // Sleep for 3 hours
             const deleted = await deletePreviousMessages();
             if (!deleted) {
                 sentMessages = []
@@ -53,7 +47,7 @@ I am ready to share my previous work with you!
                     .catch(_ => banedGroup.push(IDs[i]))
                     .finally(() => console.log(`${before_banned == banedGroup.length ? 'Sent' : 'Failed to send'} message to ${IDs[i]}`));
 
-                await sleep(5); // Sleep for 5 minutes
+                await sleep(120); // Sleep for 2 hours
             }
         } catch (_) {
             console.error('Failed to delete messages');
